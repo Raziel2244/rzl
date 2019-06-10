@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+.rzl-hidden {
+  display: none !important;
+}
+
+.rzl-flex-col {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.rzl-flex-row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.rzl-no-dec {
+  text-decoration: none;
+}
+
+.rzl-no-li {
+  list-style: none;
+}
+
+.rzl-list li {
+  height: 20px;
+}
+
+/* use a form?? */
+
+.rzl-col-1 {width: 8.33%;}
+.rzl-col-2 {width: 16.66%;}
+.rzl-col-3 {width: 25%;}
+.rzl-col-4 {width: 33.33%;}
+.rzl-col-5 {width: 41.66%;}
+.rzl-col-6 {width: 50%;}
+.rzl-col-7 {width: 58.33%;}
+.rzl-col-8 {width: 66.66%;}
+.rzl-col-9 {width: 75%;}
+.rzl-col-10 {width: 83.33%;}
+.rzl-col-11 {width: 91.66%;}
+.rzl-col-12 {width: 100%;}
+[class*="rzl-col-"] {
+  float: left;
+  padding: 15px;
+  border: 1px solid red;
+}
