@@ -9,70 +9,75 @@ rzl.UI = class {
   }
 
   init(def,args) {
+    if (!def) return;
     var rzlBox = document.getElementById('rzlBox') || document.body;
     this.def = def;
     this.args = args || {};
-    var meta = ifsetOr(this.def.meta,{});
-    this.name = ifsetOr(this.args.name,ifsetOr(meta.name,'ui'));
-    this.pnode = ifsetOr(this.args.pnode,ifsetOr(meta.pnode,rzlBox));
+    this.ui={};
+    var meta = this.def.meta || {};
+    this.name = this.args.name || meta.name || 'ui';
+    this.pnode = this.args.pnode || meta.pnode || rzlBox;
     if (typeof this.pnode === 'string') this.pnode = document.getElementById(this.pnode);
-    if (this.pnode.firstChild) rzl.destroyChildElements(this.pnode);
+    if (this.pnode.firstChild) rzl.destroyChildren(this.pnode);
 
     // fire loaded callbacks
-    rzl.callFunc(this.args.loadedCB,this,[this]);
-    rzl.callFunc(meta.loadedCB,this,[this]);
+    rzl.applyFunc(this.args.loadedCB,this,[this]);
+    rzl.applyFunc(meta.loadedCB,this,[this]);
 
     // create root UI div inside the parent element
-    this.rootNode = rzl.addDiv(this.pnode,this.name+'-root','ui-root rzl-hidden');
-    this.build();
+    this.rootNode = rzl.addDiv(this.pnode,{id:this.name+'-root',class:'ui-root rzl-hidden'});
+
+    this.build(def.view,this.rootNode);
 
     // fire built callbacks
-    rzl.callFunc(this.args.builtCB,this,[this]);
-    rzl.callFunc(meta.builtCB,this,[this]);
+    rzl.applyFunc(this.args.builtCB,this,[this]);
+    rzl.applyFunc(meta.builtCB,this,[this]);
 
     this.show();
 
     // fire displayed callbacks
-    rzl.callFunc(this.args.displayedCB,this,[this]);
-    rzl.callFunc(meta.displayedCB,this,[this]);
+    rzl.applyFunc(this.args.displayedCB,this,[this]);
+    rzl.applyFunc(meta.displayedCB,this,[this]);
 
     // update state
   }
 
-  build() {
+  build(ob,pnode) {
     // add elements from def
-    var view = this.def.view;
-    var ui = {};
-    for (var v in view) {
-      var vstyle = view[v].style || {};
-      ui[v] = rzl.addDiv(this.rootNode,'','',vstyle);
-      if (view[v].children) {
-        this.buildChildren(view[v].children,ui[v]);
-      }
-      this[`view-${v}`]=ui[v];
-    }
+    // var ui = this.ui;
+
+    var tag = ob.tag || 'div';
+    var el = rzl.addElement(tag,pnode,{
+      id : ob.id || '',
+      class : ob.class || '',
+      content : ob.content || '',
+      style : ob.style || {},
+      events : ob.events || {},
+      props : ob.props || {}
+    });
+
+    // if (ob.id) ui[ob.id]=el;
+    if (ob.children) ob.children.forEach(child=>{this.build(child,el)});
   }
 
-  buildChildren(ob,pnode) {
-    if (typeof ob === 'undefined' || typeof pnode === 'undefined') return;
-    for (var k in ob) {
-      var o = ob[k];
-      var el = rzl.newElement({
-        tag: o.tag || '',
-        pnode: pnode,
-        id: o.id || '',
-        class: o.class || '',
-        title: o.title || '',
-        content: o.content || '',
-        type: o.type || '',
-        placeholder: o.placeholder || '',
-        style: o.style || {},
-        events: o.events || {},
-        props: o.props || {}
-      });
-      if (o.children) this.buildChildren(o.children,el);
-    }
-  }
+  // buildChildren(ob,pnode) {
+  //   if (typeof ob === 'undefined' || typeof pnode === 'undefined') return;
+  //   for (var k in ob) {
+  //     var o = ob[k];
+  //
+  //     var tag = o.tag || 'div';
+  //     var el = rzl.addElement(tag,pnode,{
+  //       id : o.id || '',
+  //       class : o.class || '',
+  //       content : o.content || '',
+  //       style : o.style || {},
+  //       events : o.events || {},
+  //       props : o.props || {}
+  //     });
+  //
+  //     if (o.children) this.buildChildren(o.children,el);
+  //   }
+  // }
 
   // removes ui element from dom
   destroy() {
