@@ -89,6 +89,61 @@ var rzl = {
     return opts;
   },
 
+  // returns array of values for matching object[key] in arr1
+  arrayFromKeyInObjectsInArray: function(arr1,key) {
+    var arr2 = [];
+    arr1.forEach(ob => { arr2.push(ob[key]); });
+    return arr2;
+  },
+
+  // returns array of values for matching object[key] in arr1
+  // each item in arr2 is repeated object[count] times
+  arrayFromKeyForCountInObjectsInArray: function(arr1,key,count) {
+    var arr2 = [];
+    arr1.forEach(ob => { for (var i=ob[count];i>0;i--) arr2.push(ob[key]); });
+    return arr2;
+  },
+
+  // returns array of values for matching object[key] in arr1
+  // where object[filter[key]] is equal to filter[value]
+  // each item in arr2 is repeated object[count] times
+  arrayFromKeyForCountInObjectsInArrayFilter: function(arr1,key,count,filter) {
+    var arr2 = [];
+    arr1.forEach(ob => {
+      if (ob[filter.key] === filter.value) {
+        for (var i=ob[count];i>0;i--) arr2.push(ob[key]);
+      }
+    });
+    return arr2;
+  },
+
+  // returns array of matching arr1 indexes
+  // where object[filter[key]] is equal to filter[value]
+  // each item in arr2 is repeated object[count] times
+  arrayForCountInObjectsInArray: function(arr1,count) {
+    var arr2 = [];
+    arr1.forEach((ob,index) => { for (var i=ob[count];i>0;i--) arr2.push(index); });
+    return arr2;
+  },
+
+  // returns array of matching arr1 indexes
+  // where object[filter[key]] is equal to filter[value]
+  // each item in arr2 is repeated object[count] times
+  arrayForCountInObjectsInArrayFilter: function(arr1,count,filter) {
+    var arr2 = [];
+    arr1.forEach((ob,index) => {
+      if (ob[filter.key] === filter.value) {
+        for (var i=ob[count];i>0;i--) arr2.push(index);
+      }
+    });
+    return arr2;
+  },
+
+  // returns a random item from the given array
+  randomArrayItem: function(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  },
+
   // set the options of a select element from a provided object
   setSelOpts: function(el,opts,style='') {
     if (el.hasChildNodes()) this.destroyChildren(el,'option');
@@ -205,11 +260,16 @@ var rzl = {
 
   eventIgnore: function(ev) {stopprop(ev)},
   eventPrevent: function(ev) {ev.preventDefault()},
-};
 
-// ========================================================================
-// Helper functions
+  // ======================================================================
+  // Helper functions
 
-function capitalise(str) {
+  capitalise: function(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
-}
+  },
+
+  // generate a random number from 1 to n (inclusive)
+  rand1tn: function(n) {
+    return Math.floor(Math.random() * n) + 1;
+  },
+};

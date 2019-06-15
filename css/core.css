@@ -28,3 +28,17 @@
 .rzl-list li {
   height: 20px;
 }
+
+.rzl-btn {
+  border: 1px solid black;
+  background: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.rzl-btn:hover {
+  border-color: red;
+  color: red;
+}
