@@ -146,7 +146,8 @@ var rzl = {
 
   // set the options of a select element from a provided object
   setSelOpts: function(el,opts,style='') {
-    if (el.hasChildNodes()) this.destroyChildren(el,'option');
+    if (el.firstChild) this.destroyChildren(el);
+    // if (el.firstChild) this.destroyChildren(el,'option');
     for (var o in opts) {
       var opt = rzl.addElement('option',el,{id:o,style:style,content:opts[o]});
       opt.value = opts[o];
@@ -166,16 +167,14 @@ var rzl = {
   // destroy children of pnode matching tag
   destroyChildDivs: function(pnode) {this.destroyChildren(pnode,'div')},
   destroyChildren: function(pnode,tag) {
-    if (typeof pnode === 'undefined') return;
+    if (typeof pnode === 'undefined' || !pnode.firstChild) return;
     try {
-      if (!tag) {while (pnode.firstChild) pnode.removeChild(pnode.firstChild);}
-      else {
-        for (var c in pnode.children) {
-          var child = pnode.children[c];
-          if (child.children) this.destroyChildren(child);
-          pnode.removeChild(children);
-        }
-      };
+      if (!tag) while (pnode.firstChild) pnode.removeChild(pnode.firstChild);
+      else { for (var c in pnode.children) {
+        var child = pnode.children[c];
+        if (child.firstChild) this.destroyChildren(child);
+        pnode.removeChild(child);
+      }};
     } catch (e) {
       console.error(e);return false;
     }
@@ -269,7 +268,11 @@ var rzl = {
   },
 
   // generate a random number from 1 to n (inclusive)
-  rand1tn: function(n) {
+  rng1to: function(n) {
     return Math.floor(Math.random() * n) + 1;
+  },
+  // generate a random number from 0 to n (inclusive)
+  rng0to: function(n) {
+    return Math.floor(Math.random() * (n + 1));
   },
 };

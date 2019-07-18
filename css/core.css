@@ -31,6 +31,7 @@
 
 .rzl-btn {
   border: 1px solid black;
+  border-radius: 2px;
   background: none;
   padding: 5px 10px;
   margin: 5px;
@@ -40,6 +41,12 @@
 }
 
 .rzl-btn:hover {
-  border-color: red;
-  color: red;
+  border-color: lime;
+  color: lime;
+}
+
+.rzl-btn:disabled {
+  border-color: grey;
+  color: grey;
+  /* cursor: not-allowed; */
 }

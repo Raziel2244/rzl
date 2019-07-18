@@ -10,13 +10,18 @@ rzl.UI = class {
 
   init(def,args) {
     if (!def) return;
+
     var rzlBox = document.getElementById('rzlBox') || document.body;
     this.def = def;
     this.args = args || {};
     this.ui={};
+
     var meta = this.def.meta || {};
     this.name = this.args.name || meta.name || 'ui';
     this.pnode = this.args.pnode || meta.pnode || rzlBox;
+
+    if (meta.domain && meta.data && meta.name) window[meta.domain][meta.data][meta.name] = this;
+
     if (typeof this.pnode === 'string') this.pnode = document.getElementById(this.pnode);
     if (this.pnode.firstChild) rzl.destroyChildren(this.pnode);
 
