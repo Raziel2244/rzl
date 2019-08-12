@@ -149,7 +149,8 @@ var rzl = {
     if (el.firstChild) this.destroyChildren(el);
     // if (el.firstChild) this.destroyChildren(el,'option');
     for (var o in opts) {
-      var opt = rzl.addElement('option',el,{id:o,style:style,content:opts[o]});
+      // var opt = rzl.addElement('option',el,{id:o,style:style,content:opts[o]});
+      var opt = rzl.addElement('option',el,{style:style,content:opts[o]});
       opt.value = opts[o];
       this.setStyle(opt,style);
     }
