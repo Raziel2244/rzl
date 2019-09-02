@@ -2,6 +2,6 @@
 
 RZL is a lightweight modular JS Framework
 
-**Release v1.0.0 available now**
+**Release v1.1.0 available now**
 
 __Documetation is being written currently__

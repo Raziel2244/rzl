@@ -276,4 +276,12 @@ var rzl = {
   rng0to: function(n) {
     return Math.floor(Math.random() * (n + 1));
   },
+
+  // return biggest number from array
+  largestOf: function(arr) {
+    if (!arr || typeof arr !== 'object') return false;
+    let largest = 0;
+    for (let i in arr) { if (largest < arr[i]) largest = arr[i]; }
+    return largest;
+  },
 };
