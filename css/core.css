@@ -1,36 +1,69 @@
-* {
-  box-sizing: border-box;
-  /* border: 1px solid red; */
+/* css vars */
+:root {
+  --rzl-color: black;
+  --rzl-color-back: white;
+  --rzl-color-disabled: grey;
+  --rzl-color-active: limegreen;
 }
 
+/* dark mode tweaks */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --rzl-color: white;
+    --rzl-color-back: black;
+  }
+}
+
+
+/* elements */
+* {
+  font-family: 'Roboto Mono', monospace;
+  /* border: 1px solid red; */
+  color: var(--rzl-color);
+  background: var(--rzl-color-back);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+overflow-x: hidden;
+}
+
+
+/* misc */
 .rzl-hidden {
   display: none !important;
 }
+.rzl-no-dec {
+  text-decoration: none;
+}
 
+
+/* flex */
 .rzl-flex-col {
   display: flex;
   flex-flow: column nowrap;
 }
-
 .rzl-flex-row {
   display: flex;
   flex-flow: row nowrap;
 }
 
-.rzl-no-dec {
-  text-decoration: none;
-}
 
+/* list */
 .rzl-no-li {
   list-style: none;
 }
-
 .rzl-list li {
   height: 20px;
 }
 
+
+/* button */
 .rzl-btn {
-  border: 1px solid black;
+  border: 1px solid var(--rzl-color);
   border-radius: 2px;
   background: none;
   padding: 5px 10px;
@@ -39,14 +72,31 @@
   text-decoration: none;
   display: inline-block;
 }
-
 .rzl-btn:hover {
-  border-color: lime;
-  color: lime;
+  border-color: var(--rzl-color-active);
+  color: var(--rzl-color-active);
+}
+.rzl-btn:disabled {
+  border-color: var(--rzl-color-disabled);
+  color: var(--rzl-color-disabled);
+  /* cursor: not-allowed; */
 }
 
-.rzl-btn:disabled {
-  border-color: grey;
-  color: grey;
-  /* cursor: not-allowed; */
+
+/* form */
+[class*='rzl-form'] {
+  justify-content: center;
+}
+.rzl-form-row,
+.rzl-form-item {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  align-items: center;
+}
+.rzl-form-row > * {
+  margin: 5px;
+}
+.rzl-form-item > label {
+  padding-right: 5px;
 }
