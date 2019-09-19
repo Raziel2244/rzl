@@ -2,6 +2,7 @@
 :root {
   --rzl-color: black;
   --rzl-color-back: white;
+  --rzl-color-accent: rgba(128,128,128,0.9);
   --rzl-color-disabled: grey;
   --rzl-color-active: limegreen;
 }
@@ -28,7 +29,7 @@ html {
 }
 
 body {
-overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 
@@ -82,7 +83,6 @@ overflow-x: hidden;
   /* cursor: not-allowed; */
 }
 
-
 /* form */
 [class*='rzl-form'] {
   justify-content: center;
@@ -92,11 +92,13 @@ overflow-x: hidden;
   display: flex;
   flex-flow: row wrap;
   text-align: center;
-  align-items: center;
 }
 .rzl-form-row > * {
   margin: 5px;
 }
 .rzl-form-item > label {
   padding-right: 5px;
+}
+.rzl-form-item > .iconify,label {
+  align-self: center;
 }

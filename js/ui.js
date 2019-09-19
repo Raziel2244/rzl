@@ -1,8 +1,11 @@
-if (typeof rzl === 'undefined') throw new Error('Please check rzl/core is loaded first');
-// try {rzl.loadCSS('../rzl/css/ui.css');} catch (e) {console.error(e);}
+if (typeof rzl === 'undefined') throw new Error('Requires rzl/core')
 
-// def and args are objects
+
+// ========================================================================
+// UI builder
+
 rzl.UI = class {
+  // def and args are objects
   constructor(def,args) {
     if (typeof def !== 'object') return;
     this.def = def;
@@ -73,4 +76,4 @@ rzl.UI = class {
   hide() {
     this.rootNode.classList.add('rzl-hidden');
   }
-};
+}
