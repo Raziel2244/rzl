@@ -1,4 +1,4 @@
-# [RZL](https://raziel.dev) &middot; ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/Raziel2244/rzl?logo=github&logoColor=white&sort=semver) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Raziel2244/rzl) [![GitHub license](https://img.shields.io/github/license/Raziel2244/rzl)](https://github.com/Raziel2244/rzl)
+# [RZL](https://raziel.dev) &middot; ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/Raziel2244/rzl?logo=github&logoColor=white&sort=semver) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Raziel2244/rzl) [![GitHub license](https://img.shields.io/github/license/Raziel2244/rzl)](https://github.com/Raziel2244/rzl) [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 **Version 2.0.0-alpha**
 
