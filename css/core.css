@@ -43,12 +43,13 @@ body {
 
 
 /* flex */
-.rzl-flex-col {
+[class*="rzl-flex"] {
   display: flex;
+}
+.rzl-flex-col {
   flex-flow: column nowrap;
 }
 .rzl-flex-row {
-  display: flex;
   flex-flow: row nowrap;
 }
 
@@ -92,14 +93,16 @@ body {
   display: flex;
   flex-flow: row wrap;
   text-align: center;
+  align-items: center;
 }
 .rzl-form-row > * {
   margin: 5px;
 }
 .rzl-form-item > label {
+  align-self: center;
   padding-right: 5px;
 }
-.rzl-form-item > .iconify,label {
+.rzl-form-item > .iconify {
   align-self: center;
 }
 
