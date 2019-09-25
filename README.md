@@ -4,4 +4,4 @@ Rzl is a lightweight modular JS Framework
 
 **Release available now**
 
-__Documetation is being written currently__
+_[View the Documentation](https://github.com/raziel2244/rzl/wiki)_
