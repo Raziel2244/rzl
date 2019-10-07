@@ -1,0 +1,33 @@
+{
+  "name": "@rzl/ui",
+  "version": "2.0.0",
+  "description": "Rzl UI module.",
+  "keywords": [
+    "rzl",
+    "ui",
+    "render",
+    "module",
+    "es6"
+  ],
+  "author": "Elliot Thomas <elliot@raziel.dev>",
+  "homepage": "https://raziel.dev",
+  "license": "MIT",
+  "main": "lib/ui.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raziel2244/rzl/master/tree/packages/ui"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

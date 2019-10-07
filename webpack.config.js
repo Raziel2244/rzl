@@ -3,23 +3,23 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
 	entry: {
-		core: "./packages/core/src/core.js"
+		core: "./packages/core/lib/core.js",
+		ui: "./packages/ui/lib/ui.js"
 	},
-	mode: "development",
 	module: {
-		rules: {
+		rules: [{
 			test: /\.js$/,
 			exclude: /node_modules/,
 			use: ["babel-loader", "eslint-loader"]
-		}
+		}]
 	},
 	output: {
-		path: path.resolve(__dirname, "packages/[name]/lib"),
+		path: path.resolve(__dirname, "dist"),
 		filename: "rzl-[name].js",
 		library: ["Rzl","[name]"],
 		libraryTarget: "umd"
 	},
-	plugins: {
+	plugins: [
 		new CleanWebpackPlugin()
-	}
+	]
 };
