@@ -1,0 +1,16 @@
+language: node_js
+
+node_js:
+  - node
+
+script: npm run test && npm run build
+
+deploy:
+#  - provider: npm
+#    email: NPM_EMAIL
+#    api_key: NPM_API_KEY
+  - provider: releases
+    api_key: GITHUB_TOKEN
+    file: dist/*
+    skip_cleanup: true
+    draft: true

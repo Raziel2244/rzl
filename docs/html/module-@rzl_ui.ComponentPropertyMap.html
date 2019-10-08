@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Component</title>
+    <title>JSDoc: Class: ComponentPropertyMap</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Component</h1>
+    <h1 class="page-title">Class: ComponentPropertyMap</h1>
 
     
 
@@ -29,9 +29,9 @@
 <header>
     
         <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="module-@rzl_ui.html">@rzl/ui</a>.</span>Component<span class="signature">(props<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+            <span class="ancestors"><a href="module-@rzl_ui.html">@rzl/ui</a>.</span>ComponentPropertyMap<span class="signature">(arr<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">RzlUI generic component class.</div>
+            <div class="class-description">RzlUI component property class.</div>
         
     
 </header>
@@ -46,17 +46,18 @@
     
 
     
-    <h4 class="name" id="Component"><span class="type-signature"></span>new Component<span class="signature">(props<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ComponentPropertyMap"><span class="type-signature"></span>new ComponentPropertyMap<span class="signature">(arr<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
     
 
     
-    <p class="summary">Component class constructor.</p>
+    <p class="summary">ComponentPropertyMap constructor.</p>
     
 
 
 
 <div class="description">
-    Constructs a generic RzlUI component with the provided properties.
+    Constructs a validated Map of properties for a RzlUI Component from
+the provided Map or Array of iterable objects.
 </div>
 
 
@@ -96,7 +97,7 @@
 
         <tr>
             
-                <td class="name"><code>props</code></td>
+                <td class="name"><code>arr</code></td>
             
 
             <td class="type">
@@ -131,7 +132,7 @@
                 </td>
             
 
-            <td class="description last">See props</td>
+            <td class="description last">The Map or Array of iterables to build from.</td>
         </tr>
 
     
@@ -172,7 +173,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui_lib_ui.js.html">ui/lib/ui.js</a>, <a href="ui_lib_ui.js.html#line75">line 75</a>
+        <a href="ui_lib_ui.js.html">ui/lib/ui.js</a>, <a href="ui_lib_ui.js.html#line29">line 29</a>
     </li></ul></dd>
     
 
@@ -206,6 +207,17 @@
     </div>
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li>Map</li>
+    </ul>
+
+
+    
 
     
 
@@ -222,16 +234,15 @@
 
         
             
-<h4 class="name" id="_propClass"><span class="type-signature"></span>_propClass<span class="type-signature"></span></h4>
+<h4 class="name" id="validKeys"><span class="type-signature"></span>validKeys<span class="type-signature"></span></h4>
 
 
-<p class="summary">Matching PropertyMap class.</p>
+<p class="summary">List valid props keys.</p>
 
 
 
 <div class="description">
-    A local reference to the matching ComponentPropertyMap class for use in
-property validation inside class methods.
+    Get an array of valid keys for this ComponentPropertyMap.
 </div>
 
 
@@ -269,7 +280,7 @@ property validation inside class methods.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui_lib_ui.js.html">ui/lib/ui.js</a>, <a href="ui_lib_ui.js.html#line82">line 82</a>
+        <a href="ui_lib_ui.js.html">ui/lib/ui.js</a>, <a href="ui_lib_ui.js.html#line57">line 57</a>
     </li></ul></dd>
     
 
@@ -286,29 +297,87 @@ property validation inside class methods.
 
 
         
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
             
-<h4 class="name" id="state"><span class="type-signature"></span>state<span class="type-signature"> :Object</span></h4>
 
+    
 
-<p class="summary">Component state.</p>
+    
+    <h4 class="name" id=".is"><span class="type-signature">(static) </span>is<span class="signature">(obj)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+
+    
+    <p class="summary">Check if object is an instance of this class.</p>
+    
 
 
 
 <div class="description">
-    The current state of this component.
+    Determines whether or not the provided object is a valid instance of this
+class or not.
 </div>
 
 
 
-    <h5>Type:</h5>
-    <ul>
-        <li>
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
             
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
 <span class="param-type">Object</span>
 
 
-        </li>
-    </ul>
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The object to check</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
 
 
 
@@ -343,7 +412,7 @@ property validation inside class methods.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui_lib_ui.js.html">ui/lib/ui.js</a>, <a href="ui_lib_ui.js.html#line97">line 97</a>
+        <a href="ui_lib_ui.js.html">ui/lib/ui.js</a>, <a href="ui_lib_ui.js.html#line48">line 48</a>
     </li></ul></dd>
     
 
@@ -359,9 +428,43 @@ property validation inside class methods.
 
 
 
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
         
+<div class="param-desc">
+    The outcome of the test
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
     
 
+
+
+
+
+        
     
 
     

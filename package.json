@@ -2,13 +2,20 @@
 	"name": "root",
 	"private": true,
 	"scripts": {
-		"build": "webpack",
-		"dev": "webpack --mode development",
-		"prod": "webpack --mode production",
+		"build": "npm run build:prod",
+		"build:dev": "webpack --mode development",
+		"build:prod": "webpack --mode production",
+		"dev": "npm run build:dev",
+		"prod": "npm run build:prod",
+		"doc": "npm run docs",
+		"docs": "npm run docs:html && npm run docs:md",
+		"docs:html": "jsdoc -d docs/html -R README.md packages/*/lib/*.js",
+		"docs:md": "jsdoc2md -f packages/*/lib/*.js > docs/md/docs.md",
 		"test": "jest",
-		"doc": "npm run doc-html && npm run doc-md",
-		"doc-html": "jsdoc -d docs -R README.md packages/*/lib/*.js",
-		"doc-md": "jsdoc2md -f packages/*/lib/*.js > docs.md"
+		"test:coverage": "npm run test -- --coverage",
+		"test:coverage:watch": "npm run test -- --coverage --watch",
+		"test:watch": "npm run test -- --watch",
+		"test:watch:coverage": "npm run test:coverage:watch"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.6.2",

@@ -32,5 +32,5 @@ export function randomInt(to=100, from=1) {
  * @returns {boolean} The outcome of the test
  */
 export function undef(x) {
-	return (typeof x === "undefined") || true;
+	return (typeof x === "undefined") || false;
 }

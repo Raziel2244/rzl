@@ -75,12 +75,19 @@ export class Component {
 	constructor(props = []) {
 
 		/**
+		 * A local reference to the matching ComponentPropertyMap class for use in
+		 * property validation inside class methods.
+		 * @summary Matching PropertyMap class.
+		 */
+		this._propClass = ComponentPropertyMap;
+
+		/**
 		 * The map of properties for this component.
 		 * @summary Component props.
 		 * @type {ComponentPropertyMap}
 		 * @private
 		 */
-		this._props = new ComponentPropertyMap(props);
+		this._props = new this._propClass(props);
 
 		/**
 		 * The current state of this component.
@@ -88,13 +95,6 @@ export class Component {
 		 * @type {Object}
 		 */
 		this.state = {};
-
-		/**
-		 * A local reference to the matching ComponentPropertyMap class for use in
-		 * property validation inside class methods.
-		 * @summary Matching PropertyMap class.
-		 */
-		this._propClass = ComponentPropertyMap;
 
 	}
 
