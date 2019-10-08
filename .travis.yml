@@ -10,7 +10,11 @@ deploy:
 #    email: NPM_EMAIL
 #    api_key: NPM_API_KEY
   - provider: releases
-    api_key: GITHUB_TOKEN
+#    token: GITHUB_TOKEN
     file: dist/*
-    skip_cleanup: true
+#    skip_cleanup: true
     draft: true
+    on:
+      all_branches: true
+      tags: true
+    edge: true
