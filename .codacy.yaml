@@ -1,0 +1,6 @@
+exclude_paths:
+  - ".vscode/**"
+  - "coverage/**"
+  - "docs/**"
+  - "docsold/**"
+  - "packages/**/__tests__/**"
