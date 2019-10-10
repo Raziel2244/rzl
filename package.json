@@ -9,7 +9,7 @@
 		"prod": "npm run build:prod",
 		"doc": "npm run docs",
 		"docs": "npm run docs:html && npm run docs:md",
-		"docs:html": "jsdoc -d docs/html -R README.md packages/*/lib/*.js",
+		"docs:html": "jsdoc -t node_modules/minami -d docs/html -R README.md packages/*/lib/*.js",
 		"docs:md": "jsdoc2md -f packages/*/lib/*.js > docs/md/docs.md",
 		"test": "jest",
 		"test:coverage": "npm run test -- --coverage && npm run coverage:codacy",
@@ -29,6 +29,7 @@
 		"eslint-loader": "^3.0.2",
 		"jest": "^24.9.0",
 		"lerna": "^3.16.5",
+		"minami": "^1.2.3",
 		"webpack": "^4.41.0",
 		"webpack-cli": "^3.3.9"
 	}

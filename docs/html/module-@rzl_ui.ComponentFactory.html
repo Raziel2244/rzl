@@ -2,22 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: ComponentFactory</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ComponentFactory - Documentation</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
-
 <body>
 
-<div id="main">
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
 
-    <h1 class="page-title">Class: ComponentFactory</h1>
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="module-@rzl_ui.Component.html">Component</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="module-@rzl_ui.ComponentFactory.html">ComponentFactory</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@rzl_ui.ComponentFactory.html#.getComponentClass">getComponentClass</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@rzl_ui.ComponentFactory.html#build">build</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="module-@rzl_ui.ComponentPropertyMap.html">ComponentPropertyMap</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@rzl_ui.ComponentPropertyMap.html#.is">is</a></span></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@rzl_core.html">@rzl/core</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@rzl_core.html#.capitalise">capitalise</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@rzl_core.html#.randomInt">randomInt</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@rzl_core.html#.undef">undef</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@rzl_ui.html">@rzl/ui</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">ComponentFactory</h1>
+    
 
     
 
@@ -28,8 +41,11 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="module-@rzl_ui.html">@rzl/ui</a>.</span>ComponentFactory<span class="signature">(props<span class="signature-attributes">opt</span>, type<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        <h2>
+            <span class="ancestors"><a href="module-@rzl_ui.html">@rzl/ui</a>.</span>
+        
+        ComponentFactory
+        </h2>
         
             <div class="class-description">Factory class for mass construction of RzlUI components.</div>
         
@@ -40,14 +56,13 @@
     <div class="container-overview">
     
         
+<div class="section-method">
 
     
     <h2>Constructor</h2>
     
 
-    
     <h4 class="name" id="ComponentFactory"><span class="type-signature"></span>new ComponentFactory<span class="signature">(props<span class="signature-attributes">opt</span>, type<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-    
 
     
     <p class="summary">Component factory constructor.</p>
@@ -59,125 +74,6 @@
     Constructs a factory for building RzlUI components, usually with common
 properties which can be configured here.
 </div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>props</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Map</span>
-|
-
-<span class="param-type">Array.&lt;<a href="global.html#iterable">iterable</a>></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    []
-                
-                </td>
-            
-
-            <td class="description last">See defaultProps</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    ""
-                
-                </td>
-            
-
-            <td class="description last">See defaultType</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
 
 
 
@@ -231,66 +127,6 @@ properties which can be configured here.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id=".getComponentClass"><span class="type-signature">(static) </span>getComponentClass<span class="signature">(type)</span><span class="type-signature"> &rarr; (nullable) {Component}</span></h4>
-    
-
-    
-    <p class="summary">Get the component class</p>
-    
-
-
-
-<div class="description">
-    Get the component class from the given string. In the case that no match
-is found it will call itself again once more with the default factory
-component type.
-</div>
-
-
-
-
-
-
-
-
-
     <h5>Parameters:</h5>
     
 
@@ -304,7 +140,11 @@ component type.
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -316,29 +156,146 @@ component type.
 
         <tr>
             
-                <td class="name"><code>type</code></td>
+                <td class="name"><code>props</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>Map</code></span>
+|
+
+<span class="param-type"><code>Array.&lt;<a href="global.html#iterable">iterable</a>></code></span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
             
 
-            <td class="description last">The component type</td>
+            
+                <td class="default">
+                
+                    []
+                
+                </td>
+            
+
+            <td class="description last">
+                See defaultProps
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    ""
+                
+                </td>
+            
+
+            <td class="description last">
+                See defaultType
+                
+            </td>
         </tr>
 
     
     </tbody>
 </table>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".getComponentClass"><span class="type-signature">(static) </span>getComponentClass<span class="signature">(type)</span><span class="type-signature"> &rarr; (nullable) {Component}</span></h4>
+
+    
+    <p class="summary">Get the component class</p>
+    
+
+
+
+<div class="description">
+    Get the component class from the given string. In the case that no match
+is found it will call itself again once more with the default factory
+component type.
+</div>
 
 
 
@@ -392,68 +349,6 @@ component type.
 
 
 
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    The component class or null
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Component</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="build"><span class="type-signature"></span>build<span class="signature">(props<span class="signature-attributes">opt</span>, type<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Component}</span></h4>
-    
-
-    
-    <p class="summary">Build a component.</p>
-    
-
-
-
-<div class="description">
-    Build a component using factory defaults and parameters if provided. Build
-parameters take priority over factory defaults but the properties will be
-built first from defaults and then overloaded by the parameter properties.
-</div>
-
-
-
-
-
-
-
-
-
     <h5>Parameters:</h5>
     
 
@@ -467,11 +362,7 @@ built first from defaults and then overloaded by the parameter properties.
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -483,90 +374,92 @@ built first from defaults and then overloaded by the parameter properties.
 
         <tr>
             
-                <td class="name"><code>props</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Map</span>
-|
-
-<span class="param-type">Array.&lt;<a href="global.html#iterable">iterable</a>></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    []
-                
-                </td>
-            
-
-            <td class="description last">The Map or Array of iterable objects to
-apply over the factory default props
-See defaultProps</td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>type</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                    ""
-                
-                </td>
-            
 
-            <td class="description last">The component type to build instead of default
-See defaultType</td>
+            <td class="description last">
+                The component type
+                
+            </td>
         </tr>
 
     
     </tbody>
 </table>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Component</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    The component class or null
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="build"><span class="type-signature"></span>build<span class="signature">(props<span class="signature-attributes">opt</span>, type<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Component}</span></h4>
+
+    
+    <p class="summary">Build a component.</p>
+    
+
+
+
+<div class="description">
+    Build a component using factory defaults and parameters if provided. Build
+parameters take priority over factory defaults but the properties will be
+built first from defaults and then overloaded by the parameter properties.
+</div>
 
 
 
@@ -620,39 +513,166 @@ See defaultType</td>
 
 
 
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Map</code></span>
+|
+
+<span class="param-type"><code>Array.&lt;<a href="global.html#iterable">iterable</a>></code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    []
+                
+                </td>
+            
+
+            <td class="description last">
+                The Map or Array of iterable objects to
+apply over the factory default props
+See defaultProps
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    ""
+                
+                </td>
+            
+
+            <td class="description last">
+                The component type to build instead of default
+See defaultType
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    The built component
-</div>
 
-
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">Component</span>
+<span class="param-type"><code>Component</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    The built component
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
     
 
@@ -668,17 +688,13 @@ See defaultType</td>
 
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-@rzl_core.html">@rzl/core</a></li><li><a href="module-@rzl_ui.html">@rzl/ui</a></li></ul><h3>Classes</h3><ul><li><a href="module-@rzl_ui.Component.html">Component</a></li><li><a href="module-@rzl_ui.ComponentFactory.html">ComponentFactory</a></li><li><a href="module-@rzl_ui.ComponentPropertyMap.html">ComponentPropertyMap</a></li></ul><h3><a href="global.html">Global</a></h3>
-</nav>
-
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Tue Oct 08 2019 16:03:11 GMT+0100 (British Summer Time)
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Thu Oct 10 2019 13:54:30 GMT+0100 (British Summer Time) using the Minami theme.
 </footer>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
 </body>
 </html>
