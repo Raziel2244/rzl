@@ -1,6 +1,6 @@
 /**
  * @file Contains UI classes.
- * @author Elliot Thomas 
+ * @author Elliot Thomas
  */
 if (typeof rzl === "undefined") throw new Error("Requires rzl/core")
 
@@ -55,7 +55,7 @@ rzl.UIComponent = class {
     this._content = false;
     this.build();
   }
-  
+
   /**
    * The name used for the construction of this UI component.
    * @summary Component name.
@@ -106,11 +106,11 @@ rzl.Modal = class extends rzl.UIComponent {
 
   /**
    * Build the Modal using blueprint or content and add it to the DOM.
-   * @summary Build and show the Modal. 
+   * @summary Build and show the Modal.
    */
   build() {
     if (this.root && this.pnode) rzl.destroyElement(this.root,this.pnode);
-    
+
     /**
      * DOM element for the Modal root, obscures page underneath to hightlight the Modal box.
      * @summary Modal root.
@@ -188,7 +188,7 @@ rzl.Modal = class extends rzl.UIComponent {
 
   /**
    * Hide the Modal and remove it from the DOM.
-   * @summary Destroy the Modal. 
+   * @summary Destroy the Modal.
    */
   destroy() {
     console.log("destroy")
@@ -286,12 +286,12 @@ rzl.UI = class {
       * @default args || {}
       */
     this.args = args || {};
-    
+
     this.init();
   }
 
   /**
-   * Initialise the UI and add it to the DOM. Also setup state 
+   * Initialise the UI and add it to the DOM. Also setup state
    * and fire various construction callbacks, if set.
    * @summary Initialise UI.
    */
@@ -306,7 +306,7 @@ rzl.UI = class {
      * @default this.args.meta || this.def.meta || {}
      */
     this.meta = this.args.meta || this.def.meta || {};
-    
+
     domain = this.args.domain || this.meta.domain || "rzl";
     name = this.args.name || this.meta.name || "ui-"+window[domain].state.length;
 
