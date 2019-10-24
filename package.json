@@ -1,0 +1,28 @@
+{
+  "name": "rzl",
+  "version": "1.4.0-alpha.1",
+  "description": "JS library",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raziel2244/rzl.git"
+  },
+  "author": "Elliot Thomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raziel2244/rzl/issues"
+  },
+  "homepage": "https://github.com/raziel2244/rzl#readme",
+  "devDependencies": {
+    "jsdoc": "^3.6.3",
+    "jsdoc-to-markdown": "^5.0.2",
+    "minami": "^1.2.3"
+  }
+}

@@ -355,6 +355,22 @@ var rzl = {
   undef: x => (typeof x === "undefined" ? true : false),
 
   /**
+   * Test to see if the given variable is an iterable.
+   * @summary Test iterability.
+   * @param {*} x - The variable to test
+   * @returns {boolean} Is iterable
+   */
+  isIterable: x => typeof x[Symbol.iterator] === "function",
+
+  /**
+   * Test to see if the given variable is a string.
+   * @summary Test if string.
+   * @param {*} x - The variable to test
+   * @returns {boolean} Is string
+   */
+  isString: x => typeof x === "string",
+
+  /**
    * Capitalise the first letter of a given string.
    * @summary Capitalise first letter.
    * @param {string} str - The string to capitalise
