@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>UI - Documentation</title>
+    <title>Router - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">UI</h1>
+    <h1 class="page-title">Router</h1>
     
 
     
@@ -44,10 +44,10 @@
         <h2>
             <span class="ancestors"><a href="rzl.html">rzl</a>.</span>
         
-        UI
+        Router
         </h2>
         
-            <div class="class-description">UI class</div>
+            <div class="class-description">Router class.</div>
         
     
 </header>
@@ -62,14 +62,14 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="UI"><span class="type-signature"></span>new UI<span class="signature">(def, args<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Router"><span class="type-signature"></span>new Router<span class="signature">(args<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Construct a complete UI from definition.
+    Construct a Router.
 </div>
 
 
@@ -105,7 +105,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line287">line 287</a>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line25">line 25</a>
     </li></ul></dd>
     
 
@@ -153,44 +153,6 @@
 
         <tr>
             
-                <td class="name"><code>def</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>Object</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">
-                See <a href="rzl.UI.html#def">rzl.UI#def</a>
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>args</code></td>
             
 
@@ -224,7 +186,7 @@
             
 
             <td class="description last">
-                See <a href="rzl.UI.html#args">rzl.UI#args</a>
+                Construction arguments.
                 
                     
 
@@ -242,6 +204,8 @@
         
 
         
+        <th>Default</th>
+        
 
         <th class="last">Description</th>
     </tr>
@@ -252,13 +216,16 @@
 
         <tr>
             
-                <td class="name"><code>meta</code></td>
+                <td class="name"><code>hooks</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>string</code></span>
+<span class="param-type"><code>Map</code></span>
+|
+
+<span class="param-type"><code>Array.&lt;Iterable></code></span>
 
 
             
@@ -277,9 +244,224 @@
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
             <td class="description last">
-                See <a href="rzl.UI.html#meta">rzl.UI#meta</a>
+                See props
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>routes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Map</code></span>
+|
+
+<span class="param-type"><code>Array.&lt;Iterable></code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">
+                See props
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    ""
+                
+                </td>
+            
+
+            <td class="description last">
+                See props
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>outlet</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Element</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    document.body
+                
+                </td>
+            
+
+            <td class="description last">
+                See props
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>useHash</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Boolean</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">
+                See props
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>maxHistory</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Boolean</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    10
+                
+                </td>
+            
+
+            <td class="description last">
+                See props
                 
             </td>
         </tr>
@@ -331,15 +513,15 @@
         
             
 <div class="section-members">
-<h4 class="name" id="args"><span class="type-signature"></span>args<span class="type-signature"> :Object</span></h4>
+<h4 class="name" id="history"><span class="type-signature"></span>history<span class="type-signature"> :Array</span></h4>
 
 
-<p class="summary">Arguments.</p>
+<p class="summary">Router history.</p>
 
 
 
 <div class="description">
-    The arguments to use for the construction of this UI.
+    History of navigation in this Router.
 </div>
 
 
@@ -371,16 +553,11 @@
     
 
     
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>args || {}</li>
-        </ul></dd>
-    
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line297">line 297</a>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line123">line 123</a>
     </li></ul></dd>
     
 
@@ -397,7 +574,7 @@
     <ul>
         <li>
             
-<span class="param-type"><code>Object</code></span>
+<span class="param-type"><code>Array</code></span>
 
 
         </li>
@@ -412,15 +589,15 @@
         
             
 <div class="section-members">
-<h4 class="name" id="def"><span class="type-signature"></span>def<span class="type-signature"> :Object</span></h4>
+<h4 class="name" id="hooks"><span class="type-signature"></span>hooks<span class="type-signature"> :Map|Array.&lt;Iterable></span></h4>
 
 
-<p class="summary">UI definition.</p>
+<p class="summary">Router hooks.</p>
 
 
 
 <div class="description">
-    The definition to use for the construction of this UI.
+    The hooks activated by this Router.
 </div>
 
 
@@ -456,7 +633,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line290">line 290</a>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line63">line 63</a>
     </li></ul></dd>
     
 
@@ -473,172 +650,10 @@
     <ul>
         <li>
             
-<span class="param-type"><code>Object</code></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-</div>
-
-        
-            
-<div class="section-members">
-<h4 class="name" id="meta"><span class="type-signature"></span>meta<span class="type-signature"> :Object</span></h4>
-
-
-<p class="summary">Metadata.</p>
-
-
-
-<div class="description">
-    The metadata to use for the construction of this UI.
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>this.args.meta || this.def.meta || {}</li>
-        </ul></dd>
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line319">line 319</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><code>Object</code></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-</div>
-
-        
-            
-<div class="section-members">
-<h4 class="name" id="pnode"><span class="type-signature"></span>pnode<span class="type-signature"> :Element|string</span></h4>
-
-
-<p class="summary">Parent element.</p>
-
-
-
-<div class="description">
-    The parent element to use for the construction of this UI.
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>this.args.pnode || this.def.pnode || "rzlBox" || document.body</li>
-        </ul></dd>
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line331">line 331</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><code>Element</code></span>
+<span class="param-type"><code>Map</code></span>
 |
 
-<span class="param-type"><code>string</code></span>
+<span class="param-type"><code>Array.&lt;Iterable></code></span>
 
 
         </li>
@@ -653,15 +668,15 @@
         
             
 <div class="section-members">
-<h4 class="name" id="rootNode"><span class="type-signature"></span>rootNode<span class="type-signature"> :Element</span></h4>
+<h4 class="name" id="name"><span class="type-signature"></span>name<span class="type-signature"> :String</span></h4>
 
 
-<p class="summary">Root element.</p>
+<p class="summary">Router name.</p>
 
 
 
 <div class="description">
-    The root element to use for the construction of this UI.
+    The name for this Router.
 </div>
 
 
@@ -693,16 +708,11 @@
     
 
     
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>new child div</li>
-        </ul></dd>
-    
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line349">line 349</a>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line87">line 87</a>
     </li></ul></dd>
     
 
@@ -719,7 +729,311 @@
     <ul>
         <li>
             
-<span class="param-type"><code>Element</code></span>
+<span class="param-type"><code>String</code></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="outlet"><span class="type-signature"></span>outlet<span class="type-signature"> :HTMLElement</span></h4>
+
+
+<p class="summary">Router outlet.</p>
+
+
+
+<div class="description">
+    The DOM element this Router outputs to.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line99">line 99</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><code>HTMLElement</code></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="path"><span class="type-signature"></span>path<span class="type-signature"> :String</span></h4>
+
+
+<p class="summary">Current path.</p>
+
+
+
+<div class="description">
+    Current path of this router.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line111">line 111</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><code>String</code></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="routes"><span class="type-signature"></span>routes<span class="type-signature"> :Array</span></h4>
+
+
+<p class="summary">Router routes.</p>
+
+
+
+<div class="description">
+    The routes handled by this Router.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line75">line 75</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><code>Array</code></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="state"><span class="type-signature"></span>state<span class="type-signature"> :Map</span></h4>
+
+
+<p class="summary">Router state.</p>
+
+
+
+<div class="description">
+    The current state of this Router.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line41">line 41</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><code>Map</code></span>
 
 
         </li>
@@ -743,16 +1057,16 @@
 
     
 
-    <h4 class="name" id="build"><span class="type-signature"></span>build<span class="signature">(ob<span class="signature-attributes">opt</span>, pnode<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_loadLayout"><span class="type-signature">(async) </span>_loadLayout<span class="signature">(route)</span><span class="type-signature"></span></h4>
 
     
-    <p class="summary">Build UI.</p>
+    <p class="summary">Load the route layout.</p>
     
 
 
 
 <div class="description">
-    Build the DOM elements recursivelt from the definition.
+    Load the layout for the given route, either locally or over http.
 </div>
 
 
@@ -788,7 +1102,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line387">line 387</a>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line197">line 197</a>
     </li></ul></dd>
     
 
@@ -820,11 +1134,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -836,7 +1146,7 @@
 
         <tr>
             
-                <td class="name"><code>ob</code></td>
+                <td class="name"><code>route</code></td>
             
 
             <td class="type">
@@ -849,29 +1159,107 @@
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
 
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    {}
-                
-                </td>
             
 
             <td class="description last">
-                The definition for the new element
+                The route to use.
                 
-                    
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="_parsePath"><span class="type-signature">(async) </span>_parsePath<span class="signature">(path)</span><span class="type-signature"></span></h4>
+
+    
+    <p class="summary">Parse path and return matching route.</p>
+    
+
+
+
+<div class="description">
+    Parse the given path and return the matching route.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line162">line 162</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
 
 <table class="params">
     <thead>
@@ -883,11 +1271,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -899,336 +1283,24 @@
 
         <tr>
             
-                <td class="name"><code>class=</code></td>
+                <td class="name"><code>path</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>string</code></span>
+<span class="param-type"><code>String</code></span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
 
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last">
-                The classname for the new element
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>content=</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">
-                The content for the new element
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>events</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>Object</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    {}
-                
-                </td>
-            
-
-            <td class="description last">
-                The events for the new element
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>id=</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">
-                The id for the new element
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>props</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>Object</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    {}
-                
-                </td>
-            
-
-            <td class="description last">
-                The props for the new element
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>style</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>Object</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    {}
-                
-                </td>
-            
-
-            <td class="description last">
-                The style for the new element
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>tag</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    div
-                
-                </td>
-            
-
-            <td class="description last">
-                The tagname for the new element
-                
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>pnode</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>Element</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    document.body
-                
-                </td>
-            
-
-            <td class="description last">
-                The parent element
+                The path to parse.
                 
             </td>
         </tr>
@@ -1259,16 +1331,16 @@
 
     
 
-    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_render"><span class="type-signature">(async) </span>_render<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-    <p class="summary">Destroy UI.</p>
+    <p class="summary">Render route layout.</p>
     
 
 
 
 <div class="description">
-    Remove the root UI element from the DOM.
+    Get the route from the path and render the layout in the router outlet.
 </div>
 
 
@@ -1304,7 +1376,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line409">line 409</a>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line208">line 208</a>
     </li></ul></dd>
     
 
@@ -1344,16 +1416,16 @@
 
     
 
-    <h4 class="name" id="hide"><span class="type-signature"></span>hide<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getHashPath"><span class="type-signature"></span>getHashPath<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-    <p class="summary">Hide UI.</p>
+    <p class="summary">Get the hash path.</p>
     
 
 
 
 <div class="description">
-    Add the rzl-hidden css class to the UI.
+    Get the current hash and tidy it up, returning the path.
 </div>
 
 
@@ -1389,7 +1461,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line425">line 425</a>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line134">line 134</a>
     </li></ul></dd>
     
 
@@ -1429,17 +1501,16 @@
 
     
 
-    <h4 class="name" id="init"><span class="type-signature"></span>init<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="navigate"><span class="type-signature"></span>navigate<span class="signature">(path)</span><span class="type-signature"></span></h4>
 
     
-    <p class="summary">Initialise UI.</p>
+    <p class="summary">Navigate to route.</p>
     
 
 
 
 <div class="description">
-    Initialise the UI and add it to the DOM. Also setup state
-and fire various construction callbacks, if set.
+    Validate the given route and update the hash to trigger render.
 </div>
 
 
@@ -1475,7 +1546,7 @@ and fire various construction callbacks, if set.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line313">line 313</a>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line152">line 152</a>
     </li></ul></dd>
     
 
@@ -1492,6 +1563,58 @@ and fire various construction callbacks, if set.
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                The path to navigate to.
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -1515,16 +1638,16 @@ and fire various construction callbacks, if set.
 
     
 
-    <h4 class="name" id="show"><span class="type-signature"></span>show<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="setHashPath"><span class="type-signature"></span>setHashPath<span class="signature">(path)</span><span class="type-signature"></span></h4>
 
     
-    <p class="summary">Unhide UI.</p>
+    <p class="summary">Set the hash path.</p>
     
 
 
 
 <div class="description">
-    Remove the rzl-hidden css class from the UI.
+    Format the given path and set the hash.
 </div>
 
 
@@ -1560,7 +1683,7 @@ and fire various construction callbacks, if set.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line417">line 417</a>
+        <a href="router.js.html">router.js</a>, <a href="router.js.html#line143">line 143</a>
     </li></ul></dd>
     
 
@@ -1577,6 +1700,58 @@ and fire various construction callbacks, if set.
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                The path to set.
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 

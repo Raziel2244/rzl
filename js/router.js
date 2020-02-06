@@ -9,58 +9,111 @@ rzl.Router = class Router {
   /**
    * Construct a Router.
    * @param {Object} [args={}] - Construction arguments.
-   * @param {String} [args.name] - Name to use for router.
-   * @param {Element} [args.outlet]
-   * Element in which to display routed output.
+   * @param {Map|Iterable[]} [args.hooks]
+   * [See props]{@link rzl.Router#props}
    * @param {Map|Iterable[]} [args.routes]
-   * Array of routes to add to the router.
+   * [See props]{@link rzl.Router#props}
+   * @param {String} [args.name=""]
+   * [See props]{@link rzl.Router#props}
+   * @param {Element} [args.outlet=document.body]
+   * [See props]{@link rzl.Router#props}
+   * @param {Boolean} [args.useHash=true]
+   * [See props]{@link rzl.Router#props}
+   * @param {Boolean} [args.maxHistory=10]
+   * [See props]{@link rzl.Router#props}
    */
   constructor(args = {}) {
     /**
      * The properties of this Router.
      * @summary Router props.
      * @member {Map} rzl.Router#props
-     * @default Map()
      * @private
      */
     this.props = new Map([
-      ["callbacks", new Map(args.callbacks)],
-      ["layouts", new Map(args.layouts)],
+      ["hooks", new Map(args.hooks || [])],
+      ["routes", args.routes || []],
       ["name", args.name || ""],
       ["outlet", args.outlet || document.body],
-      ["routes", new Map(args.routes)]
+      ["useHash", args.useHash || true],
+      ["maxHistory", args.maxHistory || 10]
     ]);
 
-    if (args.layoutSrc) this.props.set("layoutSrc", args.layoutSrc);
-    if (args.layoutURL) this.props.set("layoutURL", args.layoutURL);
-    if (args.layoutVar) this.props.set("layoutVar", args.layoutVar);
-
-    const path = location.hash.slice(1);
-    const pathArr = path.split("/").slice(1);
-
+    /**
+     * The current state of this Router.
+     * @summary Router state.
+     * @member {Map} rzl.Router#state
+     */
     this.state = new Map([
-      ["activeRoute", ""],
       ["history", []],
-      ["path", path],
-      ["pathArr", pathArr]
+      ["path", this.getHashPath()]
     ]);
 
-    window.onhashchange = () => this.hashChanged();
+    // Setup hash routing
+    if (this.props.get("useHash")) window.onhashchange = () => this._render();
+
+    // navigate to current route
+    this.navigate(this.getHashPath());
+    console.log("construct", this);
   }
 
   /**
-   * The active route of this Router.
-   * @summary Active route.
+   * The hooks activated by this Router.
+   * @summary Router hooks.
+   * @type {Map|Iterable[]}
+   */
+  get hooks() {
+    return this.props.get("hooks");
+  }
+  set hooks(hooks) {
+    return this.props.set("hooks", hooks).get("hooks");
+  }
+
+  /**
+   * The routes handled by this Router.
+   * @summary Router routes.
+   * @type {Array}
+   */
+  get routes() {
+    return this.props.get("routes");
+  }
+  set routes(routes) {
+    return this.props.set("routes", routes).get("routes");
+  }
+
+  /**
+   * The name for this Router.
+   * @summary Router name.
    * @type {String}
    */
-  get activeRoute() {
-    return this.state.get("activeRoute");
+  get name() {
+    return this.props.get("name");
   }
-  set activeRoute(route) {
-    if (!this.routes.has(route))
-      throw new Error(`Route ${route} does not exist for this router`);
-    this.state.set("activeRoute", route);
-    return this.activeRoute;
+  set name(name) {
+    return this.props.set("name", name).get("name");
+  }
+
+  /**
+   * The DOM element this Router outputs to.
+   * @summary Router outlet.
+   * @type {HTMLElement}
+   */
+  get outlet() {
+    return this.props.get("outlet");
+  }
+  set outlet(outlet) {
+    return this.props.set("outlet", outlet).get("outlet");
+  }
+
+  /**
+   * Current path of this router.
+   * @summary Current path.
+   * @type {String}
+   */
+  get path() {
+    return this.state.get("path");
+  }
+  set path(path) {
+    return this.state.set("path", path).get("path");
   }
 
   /**
@@ -72,163 +125,108 @@ rzl.Router = class Router {
     return this.state.get("history");
   }
   set history(history) {
-    if (!Array.isArray(history)) throw new TypeError("history is not an Array");
-    this.history.set(history);
+    return this.state.set("history", history).get("history");
+  }
+
+  /**
+   * Get the current hash and tidy it up, returning the path.
+   * @summary Get the hash path.
+   */
+  getHashPath() {
+    return location.hash.replace(/^#?\/?/, "");
+  }
+
+  /**
+   * Format the given path and set the hash.
+   * @summary Set the hash path.
+   * @param {String} path The path to set.
+   */
+  setHashPath(path) {
+    return (location.hash = path.replace(/^#?\/?/, "#/"));
+  }
+
+  /**
+   * Validate the given route and update the hash to trigger render.
+   * @summary Navigate to route.
+   * @param {String} path The path to navigate to.
+   */
+  navigate(path = "") {
+    this.props.get("useHash") ? this.setHashPath(path) : this._render(path);
     return true;
   }
 
   /**
-   * The name to use to identify this Router.
-   * @summary Router name.
-   * @type {String}
+   * Parse the given path and return the matching route.
+   * @summary Parse path and return matching route.
+   * @param {String} path The path to parse.
    */
-  get name() {
-    return this.props.get("name");
-  }
-  set name(name) {
-    if (typeof name !== "string")
-      throw new Error("Router name must be a valid string");
-    this.props.set("name", name);
-    return this.name;
+  async _parsePath(path) {
+    return new Promise((resolve, reject) => {
+      // iteratively check for given path
+      function findRoute(routes, path) {
+        const prefix = (route, path) => path.startsWith(route.path),
+          full = (route, path) => path === route.path;
+
+        // check each route against the new path
+        for (let r of routes) {
+          // select matcher function in order of custom, fullPath and prefixPath
+          const matcher = r.matcher || r.pathMatch === "full" ? full : prefix;
+
+          // not a match, continue to next route
+          if (!matcher(r, path)) continue;
+
+          // route matches, check children or return result if no children
+          const slice = path.slice(r.path.length);
+          const child = r.children && findRoute(r.children, slice);
+          return child || r;
+        }
+      }
+
+      // search for match in router routes
+      const rt = findRoute(this.routes, path);
+
+      // settle the promise
+      rt ? resolve(rt) : reject();
+    });
   }
 
   /**
-   * The DOM element this Router outputs to.
-   * @summary Router outlet.
-   * @type {String}
+   * Load the layout for the given route, either locally or over http.
+   * @summary Load the route layout.
+   * @param {Object} route The route to use.
    */
-  get outlet() {
-    return this.props.get("outlet");
-  }
-  set outlet(outlet) {
-    if (!outlet instanceof HTMLElement)
-      throw new TypeError("outlet is not an HTMLElement");
-    this.props.set("outlet", outlet);
+  async _loadLayout(route = {}) {
+    return new Promise(resolve => {
+      if (typeof route.layout === "object") resolve(route.layout);
+      fetch(route.layout)
+        .then(l => l.json())
+        .then(l => (route.layout = l))
+        .then(resolve);
+    });
   }
 
   /**
-   * The routes handled by this Router.
-   * @summary Router routes.
-   * @type {Map|Iterable[]}
+   * Get the route from the path and render the layout in the router outlet.
+   * @summary Render route layout.
    */
-  get routes() {
-    return this.props.get("routes");
-  }
-  set routes(routes) {
-    // routes should be an iterable object
-    if (!rzl.isIterable(routes)) throw new TypeError("routes is not iterable");
-
-    // check each route
-    for (const route of routes) {
-      // each route should be an array
-      if (!Array.isArray(route)) throw new TypeError("route is not an array");
-
-      // should have two items
-      if (route.length !== 2)
-        throw new RangeError("route should contain 2 items");
-
-      // destructure to get routeName and layoutName
-      const [routeName, layoutName] = route;
-
-      // both should be strings
-      if (!rzl.isString(routeName))
-        throw new TypeError("routeName is not a string");
-      if (!rzl.isString(layoutName))
-        throw new TypeError("layoutName is not a string");
-
-      // cannot be empty string
-      if (!layoutName.length)
-        throw new TypeError("layoutName is an empty string");
-    }
-
-    // finally set the routes
-    this.props.set("routes", new Map([...routes]));
-  }
-
-  // parse the layout name from the hash
-  readPath() {
-    return (this.activeRoute = location.hash.split("/")[1]);
-  }
-
-  navigate(routeName) {
-    // validate route
-    if (!this.routes.has(routeName))
-      throw new ReferenceError(`Route ${routeName} not found`);
-
-    // update hash
-  }
-
-  async loadLayout(layoutName) {
-    // check router cache
-    if (this.props.get("layouts").has(layoutName))
-      return this.props.get("layouts").get(layoutName);
-
-    // handle acceptable cases
-    switch (this.props.get("layoutSrc")) {
-      case "JSON":
-        if (!this.props.get("layoutURL"))
-          throw new ReferenceError("layoutURL is not set");
-        return await fetch(`${this.props.get("layoutURL")}/${layoutName}.json`)
-          .then(response => {
-            if (response.status >= 200 && response.status < 300) {
-              return response;
-            } else {
-              var error = new Error(response.statusText);
-              error.response = response;
-              throw error;
-            }
-          })
-          .then(response => response.json())
-          .then(json => {
-            this.props.get("layouts").set(layoutName, json);
-            return json;
-          })
-          .catch(error => {
-            console.error(`Failed to fetch layout: ${layoutName}`);
-            throw error;
-          });
-        break;
-      case "local":
-        if (!this.props.get("layoutVar"))
-          throw new ReferenceError("layoutVar is not set");
-      default:
-        throw new ReferenceError("no layout found");
-    }
-  }
-
-  /**
-   * Load the layout for the given route and display it in the Router outlet.
-   * @summary Update outlet.
-   */
-  async render() {
-    // validate route
-    if (!this.routes.has(this.activeRoute))
-      throw new ReferenceError(`Route ${this.activeRoute} not found`);
-
-    if (this.props.get("callbacks").has("routerWillNavigate"))
-      this.props.get("callbacks").get("routerWillNavigate")();
+  async _render(path = this.getHashPath()) {
+    // parse route from path
+    const route = await this._parsePath(path);
 
     // load layout
-    const layout = await this.loadLayout(this.routes.get(this.activeRoute));
+    const layout = await this._loadLayout(route);
+
+    // activate prwe-navigation hooks
+    if (this.hooks.has("willNavigate")) this.hooks.get("willNavigate")();
 
     // display new layout
     new rzl.UI(layout, { pnode: this.outlet });
 
-    // push route to history
-    this.history.push(this.activeRoute);
+    if (this.hooks.has("didNavigate")) this.hooks.get("didNavigate")();
 
-    if (this.props.get("callbacks").has("routerDidNavigate"))
-      this.props.get("callbacks").get("routerDidNavigate")();
-  }
-
-  hashChanged() {
-    console.log("hashChanged");
-    try {
-      this.history.push(this.activeRoute);
-      this.readPath();
-      this.render();
-    } catch (err) {
-      alert(err.message);
-    }
+    // update router history
+    const count = this.history.push(this.path);
+    while (count > this.props.get("maxHistory")) this.history.shift();
+    this.path = path;
   }
 };

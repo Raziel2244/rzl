@@ -1,6 +1,6 @@
 {
   "name": "rzl",
-  "version": "1.4.0-alpha.1",
+  "version": "1.4.0",
   "description": "JS library",
   "main": "index.js",
   "directories": {
@@ -8,6 +8,9 @@
     "example": "examples"
   },
   "scripts": {
+    "docs": "npm run docs:html && npm run docs:md",
+    "docs:html": "rm -rf docs && jsdoc -t node_modules/minami -d docs -R README.md js/*.js",
+    "docs:md": "jsdoc2md -f js/*.js > api.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,7 +25,7 @@
   "homepage": "https://github.com/raziel2244/rzl#readme",
   "devDependencies": {
     "jsdoc": "^3.6.3",
-    "jsdoc-to-markdown": "^5.0.2",
+    "jsdoc-to-markdown": "^5.0.3",
     "minami": "^1.2.3"
   }
 }
