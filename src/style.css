@@ -1,0 +1,169 @@
+/* css vars */
+:root {
+  --rzl-color: black;
+  --rzl-color-back: white;
+  --rzl-color-accent: rgba(128, 128, 128, 0.9);
+  --rzl-color-disabled: grey;
+  --rzl-color-active: limegreen;
+}
+
+/* dark mode tweaks */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --rzl-color: white;
+    --rzl-color-back: black;
+  }
+}
+
+/* elements */
+* {
+  font-family: "Roboto Mono", monospace;
+  color: var(--rzl-color);
+  background-color: var(--rzl-color-back);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--rzl-color-back);
+  color: var(--rzl-color);
+  overflow-x: hidden;
+}
+
+/* misc */
+.rzl-hidden {
+  display: none !important;
+}
+.rzl-no-dec {
+  text-decoration: none;
+}
+
+/* flex */
+[class*="rzl-flex"] {
+  display: flex;
+}
+.rzl-flex-col {
+  flex-flow: column nowrap;
+}
+.rzl-flex-row {
+  flex-flow: row nowrap;
+}
+
+/* list */
+.rzl-no-li {
+  list-style: none;
+}
+.rzl-list li {
+  height: 20px;
+}
+
+/* button */
+[class*="rzl-btn"] {
+  background: none;
+  padding: 5px 10px;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid var(--rzl-color);
+  border-radius: 2px;
+}
+[class*="btn"]:hover {
+  border-color: var(--rzl-color-active);
+  color: var(--rzl-color-active);
+}
+[class*="btn"]:disabled {
+  border-color: var(--rzl-color-disabled);
+  color: var(--rzl-color-disabled);
+}
+
+/* form */
+[class*="rzl-form"] {
+  justify-content: center;
+}
+.rzl-form-row,
+.rzl-form-item {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  align-items: center;
+}
+.rzl-form-row > * {
+  margin: 5px;
+}
+.rzl-form-item > label {
+  align-self: center;
+  padding-right: 5px;
+}
+.rzl-form-item > .iconify {
+  align-self: center;
+}
+
+.modal-root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--rzl-color-accent);
+  display: flex;
+  flex-flow: column nowrap;
+}
+.modal-box {
+  background-color: var(--rzl-color-back);
+  color: var(--rzl-color);
+  height: min-content;
+  width: max-content;
+  max-width: 80%;
+  margin: 1rem auto;
+  /* padding: 1rem; */
+}
+.modal-box > * {
+  margin: 1rem;
+}
+.modal-header {
+  height: min-content;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+}
+.modal-body {
+}
+.modal-footer {
+}
+.modal-btn-close {
+}
+[class*="modal-btn"] {
+  display: inline-block;
+}
+.rzl-form-item > .iconify,
+label {
+  align-self: center;
+}
+
+.modal-root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--rzl-color-accent);
+}
+
+.modal-root > * {
+  /* height: min-content; */
+  /* width: max-content; */
+  max-width: 80%;
+  /* padding: 20px; */
+  margin: 10px auto;
+}
+
+/* .modal-box {
+  height: min-content;
+  width: max-content;
+  max-width: 80%;
+  padding: 20px;
+  margin: 10px auto;
+} */
