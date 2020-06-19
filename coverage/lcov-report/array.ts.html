@@ -22,30 +22,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,7 +97,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -105,18 +105,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -125,15 +115,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * @file Contains array related functions.
  * @author Elliot Thomas
  */
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import { rng0to } from './rng';</span>
+import { rng0to } from './rng';
 &nbsp;
 /**
  * Get the largest number in the given array.
@@ -141,8 +141,8 @@
  * @param {Array} arr - The array to search
  * @returns {Number} The largest number
  */
-<span class="cstat-no" title="statement not covered" >export function <span class="fstat-no" title="function not covered" >a</span>rrayLargest(</span>arr: Number[]): Number {
-<span class="cstat-no" title="statement not covered" >  return arr.reduce(<span class="fstat-no" title="function not covered" >(a</span>, c) =&gt; <span class="cstat-no" title="statement not covered" >(a &gt; c ? a : c));</span></span>
+export function arrayLargest(arr: Number[]): Number {
+  return arr.reduce((a, c) =&gt; (a &gt; c ? a : c));
 }
 &nbsp;
 /**
@@ -151,8 +151,8 @@
  * @param {Array} arr - The array to search
  * @returns {Number} The smallest number
  */
-<span class="cstat-no" title="statement not covered" >export function <span class="fstat-no" title="function not covered" >a</span>rraySmallest(</span>arr: Number[]): Number {
-<span class="cstat-no" title="statement not covered" >  return arr.reduce(<span class="fstat-no" title="function not covered" >(a</span>, c) =&gt; <span class="cstat-no" title="statement not covered" >(a &lt; c ? a : c));</span></span>
+export function arraySmallest(arr: Number[]): Number {
+  return arr.reduce((a, c) =&gt; (a &lt; c ? a : c));
 }
 &nbsp;
 /**
@@ -161,8 +161,8 @@
  * @param {Array} arr - Array to pick from
  * @returns {*} Selected item
  */
-<span class="cstat-no" title="statement not covered" >export function <span class="fstat-no" title="function not covered" >a</span>rrayRandom(</span>arr: any[]): any {
-<span class="cstat-no" title="statement not covered" >  return arr[rng0to(arr.length - 1)];</span>
+export function arrayRandom(arr: any[]): any {
+  return arr[rng0to(arr.length - 1)];
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -171,7 +171,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jun 16 2020 13:28:08 GMT+0100 (British Summer Time)
+                at Fri Jun 19 2020 13:35:24 GMT+0100 (British Summer Time)
             </div>
         </div>
         <script src="prettify.js"></script>

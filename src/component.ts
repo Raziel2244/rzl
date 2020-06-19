@@ -18,6 +18,7 @@ export interface ComponentArgs {
 export class Component {
   /** The properties of this component. */
   _props: Map<string, any> = new Map();
+
   /** The state of this component. */
   _state: Map<string, any> = new Map();
 
@@ -39,6 +40,7 @@ export class Component {
     this.hook('willGetBlueprint');
     return this._props.get('blueprint');
   }
+
   set blueprint(blueprint: Blueprint) {
     this.hook('willSetBlueprint');
     this._props.set('blueprint', blueprint);
@@ -51,6 +53,7 @@ export class Component {
     this.hook('willGetContent');
     return this._props.get('content');
   }
+
   set content(content: string) {
     this.hook('willSetContent');
     this._props.set('content', content);
@@ -62,6 +65,7 @@ export class Component {
     this.hook('willGetHooks');
     return this._props.get('hooks');
   }
+
   set hooks(hooks: any) {
     this.hook('willSetHooks');
     this._props.set('hooks', hooks);
@@ -73,6 +77,7 @@ export class Component {
     this.hook('willGetName');
     return this._props.get('name');
   }
+
   set name(name: string) {
     this.hook('willSetName');
     this._props.set('name', name);
@@ -84,6 +89,7 @@ export class Component {
     this.hook('willGetParent');
     return this._props.get('parent');
   }
+
   set parent(parent: HTMLElement) {
     this.hook('willSetParent');
     this._props.set('parent', parent);
@@ -95,6 +101,7 @@ export class Component {
     this.hook('willGetRoot');
     return this._state.get('root');
   }
+
   set root(root) {
     this.hook('willSetRoot');
     this._state.set('root', root);

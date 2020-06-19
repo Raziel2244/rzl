@@ -70,7 +70,7 @@ export function isObject(x: any): boolean {
  * @returns {boolean} Is number primitive
  */
 export function isNumberPrimitive(x: any): boolean {
-  return typeof x == 'number';
+  return typeof x === 'number';
 }
 
 /**
@@ -100,7 +100,7 @@ export function isStringObject(x: any): boolean {
  * @returns {boolean} Is string primitive
  */
 export function isStringPrimitive(x: any): boolean {
-  return typeof x == 'string';
+  return typeof x === 'string';
 }
 
 /**

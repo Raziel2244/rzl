@@ -103,7 +103,12 @@ export function findChild(args: FindChildArgs): Element | undefined {
 export function setSelectOptions({ elm, opts, style }: SetSelectOptionsArgs) {
   if (elm.firstElementChild) destroyChildren(elm);
   Object.entries(opts).forEach(([value, content]) => {
-    let opt = addElement({ tag: 'option', parent: elm, style, content });
+    const opt = addElement({
+      tag: 'option',
+      parent: elm,
+      style,
+      content,
+    });
     opt.value = value;
   });
 }
@@ -116,7 +121,7 @@ export function setSelectOptions({ elm, opts, style }: SetSelectOptionsArgs) {
  */
 export function setStyle(elm: HTMLElement, style: StringMapOrString) {
   if (isString(style)) elm.style.cssText += style;
-  else Object.entries(style).forEach(([k, v]) => (elm.style[<any>k] = v));
+  else Object.entries(style).forEach(([k, v]) => (elm.style[k as any] = v));
 }
 
 /**

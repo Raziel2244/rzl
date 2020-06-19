@@ -26,6 +26,7 @@ interface RouterArgs {
 /** Router class. */
 export class Router {
   props: Map<string, any>;
+
   state: Map<string, any>;
 
   /** Construct a Router. */
@@ -57,6 +58,7 @@ export class Router {
   get hooks() {
     return this.props.get('hooks');
   }
+
   set hooks(hooks: any) {
     this.props.set('hooks', hooks);
   }
@@ -65,6 +67,7 @@ export class Router {
   get routes() {
     return this.props.get('routes');
   }
+
   set routes(routes: Route[]) {
     this.props.set('routes', routes);
   }
@@ -73,6 +76,7 @@ export class Router {
   get name() {
     return this.props.get('name');
   }
+
   set name(name: string) {
     this.props.set('name', name);
   }
@@ -81,6 +85,7 @@ export class Router {
   get outlet() {
     return this.props.get('outlet');
   }
+
   set outlet(outlet: HTMLElement) {
     this.props.set('outlet', outlet);
   }
@@ -89,6 +94,7 @@ export class Router {
   get path() {
     return this.state.get('path');
   }
+
   set path(path: string) {
     this.state.set('path', path);
   }
@@ -97,16 +103,18 @@ export class Router {
   get history() {
     return this.state.get('history');
   }
+
   set history(history: string[]) {
     this.state.set('history', history);
   }
 
   /** Read and update the location hash. */
   get hashPath(): string {
-    return location.hash.replace(/^#?\/?/, '');
+    return window.location.hash.replace(/^#?\/?/, '');
   }
+
   set hashPath(path: string) {
-    location.hash = path.replace(/^#?\/?/, '#/');
+    window.location.hash = path.replace(/^#?\/?/, '#/');
   }
 
   /** Navigate to the given route. */
@@ -120,13 +128,13 @@ export class Router {
       // iteratively check for given path
       function findRoute(routes: Route[], path: string): Route | null {
         const prefix = (route: Route, path: string) =>
-            path.startsWith(route.path),
-          full = (route: Route, path: string) => path === route.path;
+          path.startsWith(route.path);
+        const full = (route: Route, path: string) => path === route.path;
 
         let route: Route | null = null;
 
         // check each route against the new path
-        for (let r of routes) {
+        for (const r of routes) {
           // select matcher function in order of custom, fullPath and prefixPath
           const matcher = r.matcher || r.pathMatch === 'full' ? full : prefix;
 
